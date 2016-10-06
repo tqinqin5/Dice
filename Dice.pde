@@ -1,6 +1,5 @@
 Die qin;
 int dimX = 1380, dimY = 750, sizeDie = 30, sizeInc = 2, sizeDot = 6, sizeKey = 100, total = 0, countDie = 0, re, gr, bl, countOne = 0, countTwo = 0, countThree = 0, countFour = 0, countFive = 0, countSix = 0;
-boolean pressed = false;
 void setup(){
   size(dimX,dimY);
   background(0);
@@ -8,7 +7,7 @@ void setup(){
 }
 void draw(){
 
-  for(int i = 5; i <= (dimX - sizeDie - 10); i += (sizeDie + sizeInc)){
+  for(int i = 5; i <= (dimX - sizeDie); i += (sizeDie + sizeInc)){
     for(int j = sizeKey; j <= (dimY - sizeDie - 10); j += (sizeDie + sizeInc)){
       qin = new Die(i, j);
       qin.roll();
@@ -49,12 +48,7 @@ class Die{
       fill(0);
       rect(cornerX, cornerY, sizeDie, sizeDie);
       fill(255);
-      if(pressed == true){
-        noStroke();
-      }
-      if(pressed == false){
-        stroke(re, gr, bl);
-      }
+      stroke(re,gr,bl);
       re = (int)(100+155*Math.random());
       gr = (int)(100+155*Math.random());
       bl = (int)(100+155*Math.random());
@@ -112,12 +106,4 @@ void keyPressed(){
 }
 void mousePressed(){
   redraw();
-  if(mouseY < sizeKey){
-    if(pressed == false){
-      pressed = true;
-    }
-    if(pressed == true){
-      pressed = false;
-    }
-  }
 }
