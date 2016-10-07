@@ -94,7 +94,9 @@ class Die{
       }
       textAlign(CENTER);
       fill(0);
+      noStroke();
       rect(0,0,dimX,sizeKey);
+      stroke(re,gr,bl);
       fill(re, gr, bl);
       textSize(32);
       text("Total: " + total, (int)(dimX/2), (int)(sizeKey/2));
